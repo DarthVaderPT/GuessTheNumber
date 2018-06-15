@@ -3,7 +3,6 @@
     position: absolute;
 }
 
-canvas {
-   position: absolute;
-   left: 8rem; 
+.reset {
+    font-size: 2rem;
 }

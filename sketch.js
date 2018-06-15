@@ -7,6 +7,7 @@ let num;
 let tentativas = 0;
 let count;
 let win = false;
+let resetBtn;
 
 function make2DArray(cols, rows) {
     let arr = new Array(cols);
@@ -18,9 +19,22 @@ function make2DArray(cols, rows) {
 }
 
 function setup() {
-    let canvas = createCanvas(w * 10 + 1, h * 10 + 1);
+    resetBtn = createButton("Restart");
+    resetBtn.addClass("reset");
+    createCanvas(w * 10 + 1, h * 10 + 1).center("horizontal");
     count = createP(tentativas.toString());
     count.addClass("counter");
+    resetBtn.mouseClicked(() => {
+        win = false;
+        tentativas = 0;
+        count.html(tentativas);
+
+        for (let x = 0; x < 10; x++) {
+            for (let y = 0; y < 10; y++) {
+                tiles[x][y] = new Tile(x, y, w, h);
+            }
+        }   
+    });
 
     tiles = make2DArray(10, 10);
 
@@ -43,18 +57,26 @@ function draw() {
     }
 }
 
+function validateTilePos(x, y) {
+    const x_v = x >= 0 && x <= 9;
+    const y_v = y >= 0 && y <= 9;
+    return x_v && y_v; 
+}
+
 function mousePressed() {
     if (!win) {
         let x = floor(mouseX * 10 / width);
         let y = floor(mouseY * 10 / height);
+        
+        if (validateTilePos(x, y)) {
+            let tile = tiles[x][y];
 
-        tentativas++;
-        count.html(tentativas);
-
-        tiles[x][y].onClick(num)
-            .then(res => {
-                console.log(res);
-                win = res;
-            });
+            tiles[x][y].onClick(num)
+                .then(res => {
+                    tentativas++;
+                    count.html(tentativas);
+                    win = res;
+                });
+        }
     }
 }

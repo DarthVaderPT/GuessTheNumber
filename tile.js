@@ -14,26 +14,24 @@ function Tile(x, y, w, h) {
 }
 
 Tile.prototype.renderText = function () {
+    textAlign(CENTER, CENTER)
     fill(0)
     noStroke();
     textSize(40);
-    text(
-        this.num, this.x + 1, this.y + 1,
-        this.x + this.w,
-        this.y + this.h
-    );
+    text(this.num, this.x + this.w / 2, this.y + this.h / 2);
 }
 
 Tile.prototype.show = function () {
     stroke(0);
+    strokeWeight(3);
 
     if (!this.clicked) {
         noFill();
     } else if (this.win) {
         fill(255, 255, 0);
-    } else if (this.menor) {
-        fill(0, 255, 0);
     } else if (this.maior) {
+        fill(0, 255, 0);
+    } else if (this.menor) {
         fill(255, 0, 0);
     }
 
