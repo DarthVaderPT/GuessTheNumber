@@ -2,7 +2,7 @@
 
 let tiles;
 let w = 80;
-let h = 60;
+let h = 55;
 let num;
 let tentativas = 0;
 let count;
