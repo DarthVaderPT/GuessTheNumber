@@ -1,0 +1,9 @@
+.counter {
+    font-size: 5rem;
+    position: absolute;
+}
+
+canvas {
+   position: absolute;
+   left: 8rem; 
+}
