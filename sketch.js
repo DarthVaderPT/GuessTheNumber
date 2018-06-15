@@ -70,13 +70,15 @@ function mousePressed() {
         
         if (validateTilePos(x, y)) {
             let tile = tiles[x][y];
-
-            tiles[x][y].onClick(num)
-                .then(res => {
-                    tentativas++;
-                    count.html(tentativas);
-                    win = res;
-                });
+            
+            if (!tile.clicked) {
+                tiles[x][y].onClick(num)
+                        .then(res => {
+                        tentativas++;
+                        count.html(tentativas);
+                        win = res;
+                    });
+            }
         }
     }
 }
