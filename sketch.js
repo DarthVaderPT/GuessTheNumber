@@ -19,7 +19,7 @@ function make2DArray(cols, rows) {
 }
 
 function setup() {
-    resetBtn = createButton("Restart");
+    resetBtn = createButton("R");
     resetBtn.addClass("reset");
     createCanvas(w * 10 + 1, h * 10 + 1).center("horizontal");
     count = createP(tentativas.toString());
