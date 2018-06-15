@@ -25,6 +25,7 @@ function setup() {
     count = createP(tentativas.toString());
     count.addClass("counter");
     resetBtn.mouseClicked(() => {
+        num = floor(random(1, 100))
         win = false;
         tentativas = 0;
         count.html(tentativas);
