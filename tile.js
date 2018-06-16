@@ -29,9 +29,9 @@ Tile.prototype.show = function () {
         noFill();
     } else if (this.win) {
         fill(255, 255, 0);
-    } else if (this.maior) {
-        fill(0, 255, 0);
     } else if (this.menor) {
+        fill(0, 255, 0);
+    } else if (this.maior) {
         fill(255, 0, 0);
     }
 
