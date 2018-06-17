@@ -55,7 +55,5 @@ Tile.prototype.onClick = async function (answer) {
         this.win = true;
     }
 
-    return new Promise((resolve, reject) => {
-        resolve(this.win);
-    })
+    return this.win;
 }
